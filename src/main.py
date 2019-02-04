@@ -28,7 +28,7 @@ def main(argv):
         elif opt in ("-p", "--port"):
             port = arg
         elif opt in ("-", "--listen"):
-            Listen = arg
+            listen = arg
     run(Listen = listen, Debug=debug)
 
 if __name__ == "__main__":
