@@ -13,6 +13,7 @@ def main(argv):
     """Main entry point of our rest service."""
     debug = False
     port = 5000
+    listen = "0.0.0.0"
     try:
         opts, args = getopt.getopt(argv, "hi:o:", ["debug=", "port="])
     except getopt.GetoptError:
@@ -26,6 +27,9 @@ def main(argv):
             debug = True
         elif opt in ("-p", "--port"):
             port = arg
-    run()
+        elif opt in ("-", "--listen"):
+            Listen = arg
+    run(Listen = listen, Debug=debug)
+
 if __name__ == "__main__":
     main(sys.argv[1:])

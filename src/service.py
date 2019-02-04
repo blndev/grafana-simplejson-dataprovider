@@ -81,5 +81,7 @@ def tag_values():
         ])
 
 
-def run():
-    APP.run()
+
+def run(Listen='0.0.0.0', Port=5000, Debug=False):
+    if(not isinstance(Port, int)): raise Exception('Port has to be an integer')
+    APP.run(host=Listen, port=Port, debug=Debug)

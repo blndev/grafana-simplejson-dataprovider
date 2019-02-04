@@ -49,6 +49,6 @@ start:
 	$(SOURCE_ENV) && $(PYTHON) src/main.py 
 
 startdebug: 
-	$(SOURCE_ENV) && $(PYTHON) src/main.py --debug
+	$(SOURCE_ENV) && $(PYTHON) src/main.py --debug --listen 127.0.0.1
 
 ci: installDependencies testci
