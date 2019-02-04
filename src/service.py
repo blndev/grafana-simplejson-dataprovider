@@ -21,21 +21,30 @@ def health_check():
 
 @APP.route('/search', methods=['POST'])
 def search():
-    return jsonify(['my_series', 'another_series', 'complexQuery(abc.x)'])
+    return jsonify(['avg_usage', 'avg_containers', 'complexQuery(abc.x)'])
 
 
 @APP.route('/query', methods=['POST'])
 def query():
     req = request.get_json()
+    dFrom = convert_to_time_ms(req['range']['from'])
+    dTo = convert_to_time_ms(req['range']['to'])
+    diff = (dTo - dFrom)/6
     data = [
         {
             "target": req['targets'][0]['target'],
             "datapoints": [
-                [861, convert_to_time_ms(req['range']['from'])],
-                [767, convert_to_time_ms(req['range']['to'])]
+                [861, dFrom],
+                [753, dFrom + 1*diff],
+                [652, dFrom + 2*diff],
+                [766, dFrom + 3*diff],
+                [865, dFrom + 4*diff],
+                [733, dFrom + 5*diff],
+                [622, dTo]
             ]
         }
     ]
+    print (data)
     return jsonify(data)
 
 
