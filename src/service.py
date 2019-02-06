@@ -29,7 +29,7 @@ def query():
     req = request.get_json()
     dFrom = convert_to_time_ms(req['range']['from'])
     dTo = convert_to_time_ms(req['range']['to'])
-    diff = (dTo - dFrom)/6
+    diff = (dTo - dFrom)/7
     data = [
         {
             "target": req['targets'][0]['target'],
