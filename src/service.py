@@ -53,12 +53,20 @@ def annotations():
     req = request.get_json()
     data = [
         {
-            "annotation": 'This is the annotation',
+            "annotation": 'This is the annotation 1',
             "time": (convert_to_time_ms(req['range']['from']) +
                      convert_to_time_ms(req['range']['to'])) / 2,
-            "title": 'Deployment notes',
+            "title": 'Deployment notes 1',
             "tags": ['tag1', 'tag2'],
             "text": 'Hm, something went wrong...'
+        },
+        {
+            "annotation": 'This is the annotation 2',
+            "time": (convert_to_time_ms(req['range']['from']) +
+                     convert_to_time_ms(req['range']['to'])) / 4*2,
+            "title": 'Deployment notes 2',
+            "tags": ['tag1', 'tag2'],
+            "text": 'All is fine. Maybe Maintenance.'
         }
     ]
     return jsonify(data)
